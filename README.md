@@ -17,7 +17,7 @@ Built with:
 
 ![CSS](https://camo.githubusercontent.com/9fe0ddca8c80fd49703246ca3b9a894ddfdc9c1c80f6ab5de92bbe91471dbab8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d4353533326636f6c6f723d313537324236266c6f676f3d43535333266c6f676f436f6c6f723d464646464646266c6162656c3d)
 
-<img src="https://res.cloudinary.com/codelikeagirl29/image/upload/v1650051997/ScreenShot_Tool_-20220415144517_goazrl.png">
+<img src="https://res.cloudinary.com/codelikeagirl29/image/upload/v1650054974/ScreenShot_Tool_-20220415163525_mjgzjg.png" alt="screenshot of express.js app">
 
 ## Getting Started
 
