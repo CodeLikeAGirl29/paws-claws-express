@@ -12,16 +12,8 @@
             "name": "Rogue",
             "shortname": "rogue",
             "summary": "Rogue.",
-            "description": "<p>As a Doberman, my fierce reputation precedes them. They're feared by those who don't know them, stereotyped as highly aggressive and vicious. True, they're a formidable guardian, but they're usually a gentle, watchful, and loving dog. They don't go looking for trouble, but they're fearless and will defend their family and turf if they perceive danger..</p><p>He enjoys being part of a family. They like to be close to those they love and, when this love is present, they're a natural protector. They're trustworthy with their family's children, friends, and guests as long as the pooch is treated kindly.</p>",
-            "artwork": [
-                "dob.jpeg",
-                "rogue.jpg",
-                "dob1.jpg",
-                "rogue2.jpg",
-                "dob.jpg",
-                "Hillary_Goldwynn_06_tn.jpg",
-                "Hillary_Goldwynn_07_tn.jpg"
-            ]
+            "description": "<p>As a Doberman, my fierce reputation precedes them. They're feared by those who don't know them, stereotyped as highly aggressive and vicious. True, they're a formidable guardian, but they're usually a gentle, watchful, and loving dog. They don't go looking for trouble, but they're fearless and will defend their family and turf if they perceive danger.</p><p>He enjoys being part of a family. They like to be close to those they love and, when this love is present, they're a natural protector. They're trustworthy with their family's children, friends, and guests as long as the pooch is treated kindly.</p>",
+            "artwork": ["dob.jpeg", "rogue.jpg", "dob1.jpg", "rogue2.jpg", "dob.jpg"]
         },
         {
             "title": "Zoe the Australian Shepherd",
