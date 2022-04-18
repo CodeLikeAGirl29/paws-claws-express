@@ -1,11 +1,13 @@
 <article class="sidebar">
-  <h1 class="sidebar-title">Puppy Gallery</h1>
-  <p class="sidebar-body">
-    Enjoy these images of our most adorable puppies!
-  </p>
-  <div class="pixgrid clearfix">
-    <% artwork.forEach(function (item, key) {%>
-      <img src="/images/speakers/<%=item%>" alt="Puppy <%=key%>" />
-      <%})%>
-  </div>
+    <h1 class="sidebar-title">
+        Photo Gallery
+    </h1>
+    <p class="sidebar-body">
+        Enjoy these images
+    </p>
+    <div class="pixgrid clearfix">
+        <% artwork.forEach(function (item, key) {%>
+            <img src="/images/dogs/<%=item%>" alt="dog image <%=key%>" />
+            <%})%>
+    </div>
 </article>

@@ -8,17 +8,17 @@
                             <%=speaker.title%>
                         </h4>
                         <div class="speakerslist-name">
-                            with
-                            <a href="/speakers/<%=speaker.shortname%>">
+                            about
+                            <a href="/dogs/<%=speaker.shortname%>">
                                 <%=speaker.name%>
                             </a>
                         </div>
                         <div class="row speakerslist-info mt-2">
                             <div class="col-sm-3">
-                                <a href="/speakers/<%=speaker.shortname%>">
+                                <a href="/dogs/<%=speaker.shortname%>">
                                     <img class="speakerslist-img rounded-circle img-fluid"
-                                        src="/images/speakers/<%=speaker.shortname%>.jpg"
-                                        alt="Photo of <%=speaker.name%>" />
+                                        src="/images/dogs/<%=speaker.shortname%>.jpg"
+                                        alt="photo of <%=speaker.name%>" />
                                 </a>
                             </div>
                             <div class="col-sm-9">
@@ -34,3 +34,4 @@
         </aside>
     </div>
 </div>
+<%- include('../layout/partials/footer') %>
