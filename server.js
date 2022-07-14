@@ -17,7 +17,7 @@ const app = express();
 
 app.locals.siteName = 'Doggies';
 
-const port = 3000;
+const port = 3003;
 
 app.set('trust proxy', 1);
 
@@ -67,6 +67,7 @@ app.use((err, request, response, next) => {
   response.locals.status = status;
   response.status(status);
   response.render('error');
+  next();
 });
 
 app.listen(port, () => {
