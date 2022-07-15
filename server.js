@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
 const cookieSession = require('cookie-session');
 const createError = require('http-errors');
@@ -60,15 +61,25 @@ app.use((request, response, next) => {
   return next(createError(404, 'File not found'));
 });
 
-app.use((err, request, response, next) => {
-  response.locals.message = err.message;
-  console.error(err);
-  const status = err.status || 500;
-  response.locals.status = status;
-  response.status(status);
-  response.render('error');
-  next();
+app.get('/', (req, res, next) => {
+  fs.readFile('/file-does-not-exist', (err, data) => {
+    if (err) {
+      next(err); // Pass errors to Express.
+    } else {
+      res.send(data);
+    }
+  });
 });
+
+// app.use((err, request, response, next) => {
+//   response.locals.message = err.message;
+//   console.error(err);
+//   const status = err.status || 500;
+//   response.locals.status = status;
+//   response.status(status);
+//   response.render('error');
+//   next();
+// });
 
 app.listen(port, () => {
   console.log(`Express server started on port ${port}!`);
