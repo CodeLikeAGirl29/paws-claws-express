@@ -18,9 +18,20 @@ const app = express();
 
 app.locals.siteName = 'Doggies';
 
-const port = 3003;
-
 app.set('trust proxy', 1);
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// index page
+app.get('/', function(req, res) {
+  res.render('pages/index');
+});
+
+// dogs page
+app.get('/dogs', function(req, res) {
+  res.render('pages/dogs');
+});
 
 app.use(
   cookieSession({
@@ -81,6 +92,5 @@ app.get('/', (req, res, next) => {
 //   next();
 // });
 
-app.listen(port, () => {
-  console.log(`Express server started on port ${port}!`);
-});
+// start the server listening for requests
+app.listen(process.env.PORT || 3003, () => console.log('Server is running...'));
