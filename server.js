@@ -93,4 +93,7 @@ app.get('/', (req, res, next) => {
 // });
 
 // start the server listening for requests
-app.listen(process.env.PORT || 3003, () => console.log('Server is running...'));
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log('Server started successfully!');
+});
