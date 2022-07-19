@@ -1,5 +1,7 @@
 # Paws & Claws
 
+[![CodeFactor](https://www.codefactor.io/repository/github/codelikeagirl29/paws-claws-express/badge)](https://www.codefactor.io/repository/github/codelikeagirl29/paws-claws-express)
+
 A (fictional) non-profit organization of dog-loving professionals who are determined to make our world better for our canine friends.
 
 ## Description
