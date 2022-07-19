@@ -24,12 +24,12 @@ app.set('trust proxy', 1);
 app.set('view engine', 'ejs');
 
 // index page
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.render('pages/index');
 });
 
 // dogs page
-app.get('/dogs', function(req, res) {
+app.get('/dogs', (req, res) => {
   res.render('pages/dogs');
 });
 
@@ -94,6 +94,6 @@ app.get('/', (req, res, next) => {
 
 // start the server listening for requests
 const port = process.env.PORT || 3000;
-app.listen(port, function() {
+app.listen(port, () => {
   console.log('Server started successfully!');
 });
