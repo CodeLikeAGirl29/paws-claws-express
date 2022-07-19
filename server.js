@@ -94,6 +94,4 @@ app.get('/', (req, res, next) => {
 
 // start the server listening for requests
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log('Server started successfully!');
-});
+app.listen(port, () => `Server running on port ${port}`);
