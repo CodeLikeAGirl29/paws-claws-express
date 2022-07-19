@@ -1,29 +1,29 @@
-const pixGrid = (function() {
+var pixGrid = (function() {
   function centerImage(theImage) {
-    let myDifX = (window.innerWidth - theImage.width) / 2;
-            var myDifY = (window.innerHeight - theImage.height) / 2;
-    return (theImage.style.top = `${myDifY  }px`), (theImage.style.left = `${myDifX  }px`), theImage;
+    var myDifX = (window.innerWidth - theImage.width) / 2,
+      myDifY = (window.innerHeight - theImage.height) / 2;
+    return (theImage.style.top = myDifY + 'px'), (theImage.style.left = myDifX + 'px'), theImage;
   }
-  let myNode = document.querySelector('.pixgrid');
+  var myNode = document.querySelector('.pixgrid');
   myNode.addEventListener(
     'click',
     function(e) {
-      if (e.target.tagName === 'IMG') {
-        let myOverlay = document.createElement('div');
+      if ('IMG' === e.target.tagName) {
+        var myOverlay = document.createElement('div');
         (myOverlay.id = 'overlay'),
           document.body.appendChild(myOverlay),
           (myOverlay.style.position = 'absolute'),
           (myOverlay.style.top = 0),
           (myOverlay.style.backgroundColor = 'rgba(0,0,0,0.7)'),
           (myOverlay.style.cursor = 'pointer'),
-          (myOverlay.style.width = `${window.innerWidth  }px`),
-          (myOverlay.style.height = `${window.innerHeight  }px`),
-          (myOverlay.style.top = `${window.pageYOffset  }px`),
-          (myOverlay.style.left = `${window.pageXOffset  }px`);
-        let imageSrc = e.target.src;
-                    var largeImage = document.createElement('img');
+          (myOverlay.style.width = window.innerWidth + 'px'),
+          (myOverlay.style.height = window.innerHeight + 'px'),
+          (myOverlay.style.top = window.pageYOffset + 'px'),
+          (myOverlay.style.left = window.pageXOffset + 'px');
+        var imageSrc = e.target.src,
+          largeImage = document.createElement('img');
         (largeImage.id = 'largeImage'),
-          (largeImage.src = `${imageSrc.substr(0, imageSrc.length - 7)  }.jpg`),
+          (largeImage.src = imageSrc.substr(0, imageSrc.length - 7) + '.jpg'),
           (largeImage.style.display = 'block'),
           (largeImage.style.position = 'absolute'),
           largeImage.addEventListener('load', function() {
@@ -52,8 +52,8 @@ const pixGrid = (function() {
             'scroll',
             function() {
               myOverlay &&
-                ((myOverlay.style.top = `${window.pageYOffset  }px`),
-                (myOverlay.style.left = `${window.pageXOffset  }px`));
+                ((myOverlay.style.top = window.pageYOffset + 'px'),
+                (myOverlay.style.left = window.pageXOffset + 'px'));
             },
             !1
           ),
@@ -61,10 +61,10 @@ const pixGrid = (function() {
             'resize',
             function() {
               myOverlay &&
-                ((myOverlay.style.width = `${window.innerWidth  }px`),
-                (myOverlay.style.height = `${window.innerHeight  }px`),
-                (myOverlay.style.top = `${window.pageYOffset  }px`),
-                (myOverlay.style.left = `${window.pageXOffset  }px`),
+                ((myOverlay.style.width = window.innerWidth + 'px'),
+                (myOverlay.style.height = window.innerHeight + 'px'),
+                (myOverlay.style.top = window.pageYOffset + 'px'),
+                (myOverlay.style.left = window.pageXOffset + 'px'),
                 centerImage(largeImage));
             },
             !1
