@@ -68,8 +68,20 @@ app.use(
   })
 );
 
-app.use((request, response, next) => {
-  return next(createError(404, 'File not found'));
+// Setup 404 errors middleware
+app.use(function(req, res, next) {
+	console.log('--> Error: 404 Not Found ('+req.url+')');
+	res.status(404).send('--> Error: 404 Not Found ('+req.url+')');
+});
+
+// Setup 500 errors middleware
+//app.use(express.errorHandler({ dumpExceptions: false, showStack: false }));
+app.use(function(err, req, res, next) {
+	console.error('--> Error: 500 Internal Server Error ('+req.url+'): '+(err.message || err));
+	if (err.stack) {
+		console.error(err.stack);
+	}
+	res.status(500).send('--> Error: 500 Internal Server Error ('+req.url+'): '+(err.message || err));
 });
 
 app.get('/', (req, res, next) => {
