@@ -29,12 +29,12 @@ let pixGrid = (function() {
           largeImage.addEventListener('load', function() {
             this.height > window.innerHeight &&
               ((this.ratio = window.innerHeight / this.height),
-              (this.height = this.height * this.ratio),
-              (this.width = this.width * this.ratio)),
+              (this.height *= this.ratio),
+              (this.width *= this.ratio)),
               this.width > window.innerWidth &&
                 ((this.ratio = window.innerWidth / this.width),
-                (this.height = this.height * this.ratio),
-                (this.width = this.width * this.ratio)),
+                (this.height *= this.ratio),
+                (this.width *= this.ratio)),
               centerImage(this),
               myOverlay.appendChild(largeImage);
           }),
