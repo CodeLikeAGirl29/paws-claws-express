@@ -1,8 +1,9 @@
 <nav class="navbar navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span> &#x2630;
-    </button>
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span> &#x2630;
+        </button>
         <a href="/" class="navbar-brand">
             <%= siteName %>
         </a>
@@ -10,15 +11,16 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a href="/speakers" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dogs
-          </a>
+                    <a href="/dogs" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dogs
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/speakers">All Dogs</a>
                         <div class="dropdown-divider"></div>
 
                         <% speakerNames.forEach(function (speaker) {%>
-                            <a class="dropdown-item" href="/speakers/<%=speaker.shortname%>">
+                            <a class="dropdown-item" href="/dogs/<%=speaker.shortname%>">
                                 <%=speaker.name%>
                             </a>
                             <%})%>

@@ -1,107 +1,51 @@
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const cookieSession = require('cookie-session');
-const createError = require('http-errors');
-
 const bodyParser = require('body-parser');
-
+const path = require('path');
 const FeedbackService = require('./services/FeedbackService');
-const SpeakersService = require('./services/SpeakerService');
-
-const feedbackService = new FeedbackService('./data/feedback.json');
-const speakersService = new SpeakersService('./data/speakers.json');
-
-const routes = require('./routes');
+const SpeakerService = require('./services/SpeakerService');
+const cookieSession = require('cookie-session');
 
 const app = express();
+const PORT = 5000;
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './views'));
+const feedbackService = new FeedbackService('./data/feedback.json');
+const speakerService = new SpeakerService('./data/speakers.json');
 
-app.use(express.static(path.join(__dirname, './public')));
-
-app.locals.siteName = 'Doggies';
+const mainRoute = require('./routes/index');
 
 app.set('trust proxy', 1);
-
-// index page
-app.get('/', (req, res) => {
-  res.render('views/pages/index');
-});
-
-// dogs page
-app.get('/dogs', (req, res) => {
-  res.render('views/pages/dogs');
-});
-
 app.use(
   cookieSession({
     name: 'session',
-    keys: ['Ghdur687399s7w', 'hhjjdf89s866799'],
+    keys: ['ksldkjfjslfjls', 'jhjheilsnelofonerf'],
   })
 );
-
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(async (request, response, next) => {
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+// accessible to all template
+app.locals.siteName = 'Paws & Claws';
+app.use(async (req, res, next) => {
   try {
-    const names = await speakersService.getNames();
-    response.locals.speakerNames = names;
+    const names = await speakerService.getNames();
+    res.locals.speakerNames = names;
+    console.log(res.locals);
     return next();
-  } catch (err) {
-    return next(err);
+  } catch (error) {
+    return next(error);
   }
 });
 
 app.use(
-  '/',
-  routes({
-    feedbackService,
-    speakersService,
+  mainRoute({
+    speakerService: speakerService,
+    feedbackService: feedbackService,
   })
 );
 
-// Setup 404 errors middleware
-app.use(function(req, res, next) {
-  console.log('--> Error: 404 Not Found (' + req.url + ')');
-  res.status(404).send('--> Error: 404 Not Found (' + req.url + ')');
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}...`);
 });
-
-// Setup 500 errors middleware
-//app.use(express.errorHandler({ dumpExceptions: false, showStack: false }));
-app.use(function(err, req, res, next) {
-  console.error('--> Error: 500 Internal Server Error (' + req.url + '): ' + (err.message || err));
-  if (err.stack) {
-    console.error(err.stack);
-  }
-  res
-    .status(500)
-    .send('--> Error: 500 Internal Server Error (' + req.url + '): ' + (err.message || err));
-});
-
-app.get('/', (req, res, next) => {
-  fs.readFile('/file-does-not-exist', (err, data) => {
-    if (err) {
-      next(err); // Pass errors to Express.
-    } else {
-      res.send(data);
-    }
-  });
-});
-
-// app.use((err, request, response, next) => {
-//   response.locals.message = err.message;
-//   console.error(err);
-//   const status = err.status || 500;
-//   response.locals.status = status;
-//   response.status(status);
-//   response.render('error');
-//   next();
-// });
-
-// start the server listening for requests
-const port = process.env.PORT || 3000;
-app.listen(port, () => `Server running on port ${port}`);
