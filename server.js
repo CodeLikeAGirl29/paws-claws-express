@@ -16,21 +16,24 @@ const routes = require('./routes');
 
 const app = express();
 
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './views'));
+
+app.use(express.static(path.join(__dirname, './public')));
+
 app.locals.siteName = 'Doggies';
 
 app.set('trust proxy', 1);
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
-
 // index page
 app.get('/', (req, res) => {
-  res.render('pages/index');
+  res.render('views/pages/index');
 });
 
 // dogs page
 app.get('/dogs', (req, res) => {
-  res.render('pages/dogs');
+  res.render('views/pages/dogs');
 });
 
 app.use(
@@ -42,13 +45,6 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './views'));
-
-app.locals.siteName = 'Paws & Claws';
-
-app.use(express.static(path.join(__dirname, './static')));
 
 app.use(async (request, response, next) => {
   try {
@@ -70,18 +66,20 @@ app.use(
 
 // Setup 404 errors middleware
 app.use(function(req, res, next) {
-	console.log('--> Error: 404 Not Found ('+req.url+')');
-	res.status(404).send('--> Error: 404 Not Found ('+req.url+')');
+  console.log('--> Error: 404 Not Found (' + req.url + ')');
+  res.status(404).send('--> Error: 404 Not Found (' + req.url + ')');
 });
 
 // Setup 500 errors middleware
 //app.use(express.errorHandler({ dumpExceptions: false, showStack: false }));
 app.use(function(err, req, res, next) {
-	console.error('--> Error: 500 Internal Server Error ('+req.url+'): '+(err.message || err));
-	if (err.stack) {
-		console.error(err.stack);
-	}
-	res.status(500).send('--> Error: 500 Internal Server Error ('+req.url+'): '+(err.message || err));
+  console.error('--> Error: 500 Internal Server Error (' + req.url + '): ' + (err.message || err));
+  if (err.stack) {
+    console.error(err.stack);
+  }
+  res
+    .status(500)
+    .send('--> Error: 500 Internal Server Error (' + req.url + '): ' + (err.message || err));
 });
 
 app.get('/', (req, res, next) => {
