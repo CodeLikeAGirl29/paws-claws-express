@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cookieSession = require('cookie-session');
 const FeedbackService = require('./services/FeedbackService');
 const SpeakerService = require('./services/SpeakerService');
-const cookieSession = require('cookie-session');
 
 const app = express();
 const PORT = 5000;

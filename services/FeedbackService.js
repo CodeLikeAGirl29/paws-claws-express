@@ -8,10 +8,6 @@ const writeFile = util.promisify(fs.writeFile);
  * Logic for reading and writing feedback data
  */
 class FeedbackService {
-  /**
-   * Constructor
-   * @param {*} datafile Path to a JSOn file that contains the feedback data
-   */
   constructor(datafile) {
     this.datafile = datafile;
   }
@@ -24,12 +20,6 @@ class FeedbackService {
     return data;
   }
 
-  /**
-   * Add a new feedback item
-   * @param {*} name The name of the user
-   * @param {*} title The title of the feedback message
-   * @param {*} message The feedback message
-   */
   async addEntry(name, email, title, message) {
     const data = (await this.getData()) || [];
     data.unshift({ name, email, title, message });

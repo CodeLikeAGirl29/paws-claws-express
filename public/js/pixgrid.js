@@ -1,16 +1,16 @@
-var pixGrid = (function() {
+let pixGrid = (function() {
   function centerImage(theImage) {
-    var myDifX = (window.innerWidth - theImage.width) / 2,
+    let myDifX = (window.innerWidth - theImage.width) / 2,
       myDifY = (window.innerHeight - theImage.height) / 2;
     return (theImage.style.top = myDifY + 'px'), (theImage.style.left = myDifX + 'px'), theImage;
   }
-  var myNode = document.querySelector('.pixgrid');
+  let myNode = document.querySelector('.pixgrid');
   myNode.addEventListener(
     'click',
     function(e) {
       if ('IMG' === e.target.tagName) {
-        var myOverlay = document.createElement('div');
-        (myOverlay.id = 'overlay'),
+        let myOverlay = document.createElement('div');
+        (myOverlay.id = 'overlay');
           document.body.appendChild(myOverlay),
           (myOverlay.style.position = 'absolute'),
           (myOverlay.style.top = 0),
@@ -20,7 +20,7 @@ var pixGrid = (function() {
           (myOverlay.style.height = window.innerHeight + 'px'),
           (myOverlay.style.top = window.pageYOffset + 'px'),
           (myOverlay.style.left = window.pageXOffset + 'px');
-        var imageSrc = e.target.src,
+        let imageSrc = e.target.src,
           largeImage = document.createElement('img');
         (largeImage.id = 'largeImage'),
           (largeImage.src = imageSrc.substr(0, imageSrc.length - 7) + '.jpg'),
@@ -29,12 +29,12 @@ var pixGrid = (function() {
           largeImage.addEventListener('load', function() {
             this.height > window.innerHeight &&
               ((this.ratio = window.innerHeight / this.height),
-              (this.height = this.height * this.ratio),
-              (this.width = this.width * this.ratio)),
+              (this.height *= this.ratio),
+              (this.width *= this.ratio)),
               this.width > window.innerWidth &&
                 ((this.ratio = window.innerWidth / this.width),
-                (this.height = this.height * this.ratio),
-                (this.width = this.width * this.ratio)),
+                (this.height *= this.ratio),
+                (this.width *= this.ratio)),
               centerImage(this),
               myOverlay.appendChild(largeImage);
           }),

@@ -10,10 +10,6 @@ const readFile = util.promisify(fs.readFile);
  * Logic for fetching speakers information
  */
 class SpeakerService {
-  /**
-   * Constructor
-   * @param {*} datafile Path to a JSOn file that contains the speakers data
-   */
   constructor(datafile) {
     this.datafile = datafile;
   }
@@ -31,7 +27,7 @@ class SpeakerService {
   }
 
   /**
-   * Get all artwork
+   * Get all pics
    */
   async getAllArtwork() {
     const data = await this.getData();
@@ -48,10 +44,6 @@ class SpeakerService {
     return artwork;
   }
 
-  /**
-   * Get all artwork of a given speaker
-   * @param {*} shortname The speakers short name
-   */
   async getArtworkForSpeaker(shortname) {
     const data = await this.getData();
     const speaker = data.find(elm => {
@@ -61,10 +53,7 @@ class SpeakerService {
     return speaker.artwork;
   }
 
-  /**
-   * Get speaker information provided a shortname
-   * @param {*} shortname
-   */
+ 
   async getSpeaker(shortname) {
     const data = await this.getData();
     const speaker = data.find(elm => {
