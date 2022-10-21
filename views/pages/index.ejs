@@ -1,79 +1,48 @@
 <%- include('./partials/topSpeakers') %>
-
-    <article class="speakerslist jumbotron d-none d-sm-block">
-        <div class="container">
-            <div class="row">
-                <% include partials/topSpeakers.forEach(function(speaker) {%>
-                    <div class="col-md text-center">
-                        <h4 class="speakerslist-title">
-                            <%=speaker.title%>
-                        </h4>
-                        <div class="speakerslist-name">
-                            with
-                            <a href="/dogs/<%=speaker.shortname%>">
-                                <%=speaker.name%>
-                            </a>
-                        </div>
-                        <p class="speakerslist-info mt-2">
-                            <a href="/dogs/<%=speaker.shortname%>">
-                                <img class="speakerslist-img rounded-circle"
-                                    src="/images/dogs/<%=speaker.shortname%>.jpg" alt="Photo of <%=speaker.name%>" />
-                            </a>
-                        </p>
-                    </div>
-                    <%})%>
-            </div>
-        </div>
-    </article>
-
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-8">
-                <article class="article maincontent">
-                    <h1>Who are we?</h1>
-                    <p>
-                        <i class="fa-solid fa-bone"></i> Paws & Claws is a (fictional) non-profit organization of
-                        dog-loving professionals who are determined to make our world better for our canine friends.
-                    </p>
-                    <p>
-                        Being informed is the very best tip we can offer when it comes to making a conscientious
-                        decision as a potential volunteer. Before jumping paws-first into your new position, it's
-                        important to consider the type of animal shelter that best fits your tolerances
-                        and personality. Oh, and remember to be honest with yourself.
-                    </p>
-                </article>
-                <article class="article maincontent">
-                    <h2 class="article-title">Get Busy!</h2>
-                    <p>
-                        Get out there and volunteer at your <a
-                            href="https://www.aspca.org/adopt-pet/adoptable-dogs-your-local-shelter">local shelter</a>,
-                        <a href="https://www.aspcapro.org/sites/default/files/seattle-animal-shelter-foster-1.pdf">or
-                            you could try
-                            fostering</a>, or take your dog to
-                        <a href="https://www.bringfido.com/sitemap/attraction/">a local dog park</a>. If you&apos;re in
-                        FaceBook, you can also
-                        <a href="https://www.facebook.com/AmericanKennelClub/groups">join
-                            the AKC FaceBook group</a>.
-                    </p>
-                </article>
-            </div>
-
-            <aside class="col-md-4">
-                <article class="sidebar">
-                    <h1 class="sidebar-title">Who should come?</h1>
-                    <ul class="sidebar-body">
-                        <li>Are you interested in supporting and volunteering at local shelters?</li>
-                        <li>Are you obsessed with and adore man's best friend?</li>
-                        <li>
-                            Spend countless hours checking out cute dog vids online?
-                        </li>
-                    </ul>
-                </article>
-
-            </aside>
-        </div>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <article class="article maincontent">
+        <h1>Who are we?</h1>
+        <p>
+          <i class="fa-solid fa-bone"></i> <br/>Paws & Claws is a (fictional) non-profit organization of
+          dog-loving professionals who are determined to make our world better for our canine friends.
+        </p>
+        <p>
+          Being informed is the very best tip we can offer when it comes to making a conscientious
+          decision as a potential volunteer. Before jumping paws-first into your new position, it's
+          important to consider the type of animal shelter that best fits your tolerances
+          and personality. Oh, and remember to be honest with yourself.
+        </p>
+      </article>
+      <article class="article maincontent">
+        <h2 class="article-title">Get Busy!</h2>
+        <p>
+          Get out there and volunteer at your
+          <a href="https://www.aspca.org/adopt-pet/adoptable-dogs-your-local-shelter">local shelter</a>,<a href="https://www.aspcapro.org/sites/default/files/seattle-animal-shelter-foster-1.pdf">or try fostering,</a> take your dog to
+          <a href="https://www.bringfido.com/sitemap/attraction/">a local dog park</a>. If you&apos;re on
+          Facebook, you can also
+          <a href="https://www.facebook.com/AmericanKennelClub/groups">join the AKC Facebook group</a>.
+        </p>
+      </article>
     </div>
 
-    <footer>
-        <%- include('./partials/footer.ejs'); %>
-    </footer>
+    <aside class="col-md-4">
+      <article class="sidebar">
+        <h1 class="sidebar-title">Who should come?</h1>
+        <ul class="sidebar-body">
+          <li>Are you interested in supporting and volunteering at local shelters?</li>
+          <li>Are you obsessed with and adore man's best friend?</li>
+          <li>
+            Spend countless hours checking out cute dog vids online?
+          </li>
+        </ul>
+      </article>
+      <%- include('./partials/artwork') %>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <%- include('./partials/footer.ejs'); %>
+</footer>

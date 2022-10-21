@@ -76,3 +76,5 @@ Inspiration, code snippets, etc.
 - [Daniel Khan's Course](https://github.com/danielkhan/building-website-nodejs-express)
 - [css-tricks](https://css-tricks.com/2)
 - [Dogtime](https://dogtime.com/dog-breeds)
+
+---

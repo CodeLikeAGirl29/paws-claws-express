@@ -1,40 +1,40 @@
-let pixGrid = (function() {
+const pixGrid = (function() {
   function centerImage(theImage) {
-    let myDifX = (window.innerWidth - theImage.width) / 2,
-      myDifY = (window.innerHeight - theImage.height) / 2;
-    return (theImage.style.top = myDifY + 'px'), (theImage.style.left = myDifX + 'px'), theImage;
+    let myDifX = (window.innerWidth - theImage.width) / 2;
+            var myDifY = (window.innerHeight - theImage.height) / 2;
+    return (theImage.style.top = `${myDifY  }px`), (theImage.style.left = `${myDifX  }px`), theImage;
   }
   let myNode = document.querySelector('.pixgrid');
   myNode.addEventListener(
     'click',
     function(e) {
-      if ('IMG' === e.target.tagName) {
+      if (e.target.tagName === 'IMG') {
         let myOverlay = document.createElement('div');
-        (myOverlay.id = 'overlay');
+        (myOverlay.id = 'overlay'),
           document.body.appendChild(myOverlay),
           (myOverlay.style.position = 'absolute'),
           (myOverlay.style.top = 0),
           (myOverlay.style.backgroundColor = 'rgba(0,0,0,0.7)'),
           (myOverlay.style.cursor = 'pointer'),
-          (myOverlay.style.width = window.innerWidth + 'px'),
-          (myOverlay.style.height = window.innerHeight + 'px'),
-          (myOverlay.style.top = window.pageYOffset + 'px'),
-          (myOverlay.style.left = window.pageXOffset + 'px');
-        let imageSrc = e.target.src,
-          largeImage = document.createElement('img');
+          (myOverlay.style.width = `${window.innerWidth  }px`),
+          (myOverlay.style.height = `${window.innerHeight  }px`),
+          (myOverlay.style.top = `${window.pageYOffset  }px`),
+          (myOverlay.style.left = `${window.pageXOffset  }px`);
+        let imageSrc = e.target.src;
+                    var largeImage = document.createElement('img');
         (largeImage.id = 'largeImage'),
-          (largeImage.src = imageSrc.substr(0, imageSrc.length - 7) + '.jpg'),
+          (largeImage.src = `${imageSrc.substr(0, imageSrc.length - 7)  }.jpg`),
           (largeImage.style.display = 'block'),
           (largeImage.style.position = 'absolute'),
           largeImage.addEventListener('load', function() {
             this.height > window.innerHeight &&
               ((this.ratio = window.innerHeight / this.height),
-              (this.height *= this.ratio),
-              (this.width *= this.ratio)),
+              (this.height = this.height * this.ratio),
+              (this.width = this.width * this.ratio)),
               this.width > window.innerWidth &&
                 ((this.ratio = window.innerWidth / this.width),
-                (this.height *= this.ratio),
-                (this.width *= this.ratio)),
+                (this.height = this.height * this.ratio),
+                (this.width = this.width * this.ratio)),
               centerImage(this),
               myOverlay.appendChild(largeImage);
           }),
@@ -52,8 +52,8 @@ let pixGrid = (function() {
             'scroll',
             function() {
               myOverlay &&
-                ((myOverlay.style.top = window.pageYOffset + 'px'),
-                (myOverlay.style.left = window.pageXOffset + 'px'));
+                ((myOverlay.style.top = `${window.pageYOffset  }px`),
+                (myOverlay.style.left = `${window.pageXOffset  }px`));
             },
             !1
           ),
@@ -61,10 +61,10 @@ let pixGrid = (function() {
             'resize',
             function() {
               myOverlay &&
-                ((myOverlay.style.width = window.innerWidth + 'px'),
-                (myOverlay.style.height = window.innerHeight + 'px'),
-                (myOverlay.style.top = window.pageYOffset + 'px'),
-                (myOverlay.style.left = window.pageXOffset + 'px'),
+                ((myOverlay.style.width = `${window.innerWidth  }px`),
+                (myOverlay.style.height = `${window.innerHeight  }px`),
+                (myOverlay.style.top = `${window.pageYOffset  }px`),
+                (myOverlay.style.left = `${window.pageXOffset  }px`),
                 centerImage(largeImage));
             },
             !1
