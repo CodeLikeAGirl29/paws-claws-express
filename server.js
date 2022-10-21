@@ -15,9 +15,7 @@ const routes = require('./routes');
 
 const app = express();
 
-app.locals.siteName = 'ROUX Academy';
-
-const port = 3000;
+app.locals.siteName = 'Paws & Claws';
 
 app.set('trust proxy', 1);
 
