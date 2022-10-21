@@ -69,6 +69,5 @@ app.use((err, request, response, next) => {
   response.render('error');
 });
 
-app.listen(port, () => {
-  console.log(`Express server listening on port ${port}!`);
-});
+// start the server listening for requests
+app.listen(process.env.PORT || 3000, () => console.log('Server is running...'));
