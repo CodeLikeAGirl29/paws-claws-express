@@ -5,7 +5,7 @@
 A (fictional) non-profit organization of dog-loving professionals who are determined to make our world better for our canine friends.
 
 🦴🦴🦴
-> Live link [here](https://paws-claws-express.herokuapp.com/)
+> Live link [here](https://wild-ruby-bison-sari.cyclic.app/)
 
 🦴🦴🦴
 
