@@ -30,7 +30,7 @@ const pixGrid = (function() {
             this.height > window.innerHeight &&
               ((this.ratio = window.innerHeight / this.height),
               (this.height *= this.ratio),
-              (this.width *= this.ratio)),
+              (this.width *= this.ratio))
               this.width > window.innerWidth &&
                 ((this.ratio = window.innerWidth / this.width),
                 (this.height *= this.ratio),
