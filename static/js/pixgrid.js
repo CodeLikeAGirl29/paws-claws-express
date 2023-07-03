@@ -1,15 +1,15 @@
 const pixGrid = (function() {
   function centerImage(theImage) {
-    let myDifX = (window.innerWidth - theImage.width) / 2;
-            var myDifY = (window.innerHeight - theImage.height) / 2;
+    const myDifX = (window.innerWidth - theImage.width) / 2;
+            const myDifY = (window.innerHeight - theImage.height) / 2;
     return (theImage.style.top = `${myDifY  }px`), (theImage.style.left = `${myDifX  }px`), theImage;
   }
-  let myNode = document.querySelector('.pixgrid');
+  const myNode = document.querySelector('.pixgrid');
   myNode.addEventListener(
     'click',
-    function(e) {
+    (e) => {
       if (e.target.tagName === 'IMG') {
-        let myOverlay = document.createElement('div');
+        const myOverlay = document.createElement('div');
         (myOverlay.id = 'overlay'),
           document.body.appendChild(myOverlay),
           (myOverlay.style.position = 'absolute'),
@@ -20,8 +20,8 @@ const pixGrid = (function() {
           (myOverlay.style.height = `${window.innerHeight  }px`),
           (myOverlay.style.top = `${window.pageYOffset  }px`),
           (myOverlay.style.left = `${window.pageXOffset  }px`);
-        let imageSrc = e.target.src;
-                    var largeImage = document.createElement('img');
+        const imageSrc = e.target.src;
+                    const largeImage = document.createElement('img');
         (largeImage.id = 'largeImage'),
           (largeImage.src = `${imageSrc.substr(0, imageSrc.length - 7)  }.jpg`),
           (largeImage.style.display = 'block'),
@@ -29,18 +29,18 @@ const pixGrid = (function() {
           largeImage.addEventListener('load', function() {
             this.height > window.innerHeight &&
               ((this.ratio = window.innerHeight / this.height),
-              (this.height = this.height * this.ratio),
-              (this.width = this.width * this.ratio)),
+              (this.height *= this.ratio),
+              (this.width *= this.ratio))
               this.width > window.innerWidth &&
                 ((this.ratio = window.innerWidth / this.width),
-                (this.height = this.height * this.ratio),
-                (this.width = this.width * this.ratio)),
+                (this.height *= this.ratio),
+                (this.width *= this.ratio)),
               centerImage(this),
               myOverlay.appendChild(largeImage);
           }),
           largeImage.addEventListener(
             'click',
-            function() {
+            () => {
               myOverlay &&
                 (window.removeEventListener('resize', window, !1),
                 window.removeEventListener('scroll', window, !1),
@@ -50,7 +50,7 @@ const pixGrid = (function() {
           ),
           window.addEventListener(
             'scroll',
-            function() {
+            () => {
               myOverlay &&
                 ((myOverlay.style.top = `${window.pageYOffset  }px`),
                 (myOverlay.style.left = `${window.pageXOffset  }px`));
@@ -59,7 +59,7 @@ const pixGrid = (function() {
           ),
           window.addEventListener(
             'resize',
-            function() {
+            () => {
               myOverlay &&
                 ((myOverlay.style.width = `${window.innerWidth  }px`),
                 (myOverlay.style.height = `${window.innerHeight  }px`),
