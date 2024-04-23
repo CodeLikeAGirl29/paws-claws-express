@@ -8,10 +8,10 @@
     "dev": "nodemon --ignore feedback.json server.js"
   },
   "keywords": [],
-  "author": "Daniel Khan",
+  "author": "",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.43.0",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
