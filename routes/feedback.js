@@ -2,8 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
-module.exports = (params) => {
-  const feedbackService = params.feedbackService;
+module.exports = params => {
+  const { feedbackService } = params;
 
   router.route('/').get(async (req, res, next) => {
     const feedback = await feedbackService.getList();

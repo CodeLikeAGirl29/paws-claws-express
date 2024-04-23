@@ -2,8 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
-module.exports = (params) => {
-  const speakerService = params.speakerService;
+module.exports = params => {
+  const { speakerService } = params;
   // console.log('Endpoint');
   // console.log(params.speakerService);
 

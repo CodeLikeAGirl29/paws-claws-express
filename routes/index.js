@@ -4,9 +4,9 @@ const feedbackRoute = require('./feedback');
 
 const router = express.Router();
 
-module.exports = (params) => {
+module.exports = params => {
   router.route('/').get((req, res, next) => {
-    //visit count  from cookie
+    // visit count  from cookie
     if (!req.session.visitcount) {
       req.session.visitcount = 0;
     }

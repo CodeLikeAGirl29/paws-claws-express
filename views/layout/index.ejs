@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>paws & claws</title>
+    <title>paws and claws</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <meta
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
@@ -18,55 +19,19 @@
       href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=block"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/29b275fb0c.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/29b275fb0c.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <header>
+      <%- include ('./partials/nav.ejs') %>
       <div class="jumbotron d-none d-sm-block"></div>
-<nav class="navbar navbar navbar-expand-md navbar-dark bg-dark">
-  <div class="container">
-    <button
-      type="button"
-      class="navbar-toggler collapsed"
-      data-toggle="collapse"
-      data-target="#navbar-collapse"
-      aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span> &#x2630;
-    </button>
-    <a href="/" class="navbar-brand"><%= siteName %></a>
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ml-auto">
-          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-          <li class="nav-item dropdown">
-            <a
-              href="/speakers"
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false">
-              Dogs
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/speakers">All Dogs</a>
-              <div class="dropdown-divider"></div>
-
-              <% speakerNames.forEach(function (speaker) {%>
-                <a class="dropdown-item" href="/speakers/<%=speaker.shortname%>"><%=speaker.name%></a>
-                  <%})%>
-                  </div>
-                </li>
-                <li class="nav-item"><a href="/feedback" class="nav-link">Feedback</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
     </header>
 
-    <%- include(`../pages/${template}`) %> <%- include('./partials/scripts') %>
+    <%- include(`../pages/${template}`) %>
+    <div class="separate"></div>
+    <%- include ('./partials/scripts.ejs') %>
+
+     <%- include('partials/footer.ejs') %>
   </body>
 </html>
